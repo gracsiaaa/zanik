@@ -286,18 +286,6 @@ body::after {
   display: none !important;
 }
 
-/* --- RESPONSIVE --- */
-@media (max-width: 600px) {
-  .win-window {
-    width: 95%;
-    margin-top: 60px;
-  }
-
-  .grid-menu {
-    gap: 10px;
-  }
-}
-
 /* --- TAMBAHAN UNTUK CARD 4-1 (FLYING STICKERS) --- */
 
 .sticker-board {
@@ -614,64 +602,6 @@ body::after {
 
 
 
-/* --- MOBILE RESPONSIVE UNTUK GALERI (Card 1) --- */
-
-@media (max-width: 768px) {
-
-  /* Ubah wadah menjadi Grid 2 Kolom */
-  .gallery-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* 2 Foto per baris */
-    gap: 10px;
-    /* Jarak antar foto */
-    padding: 40px 10px;
-    /* Padding lebih lega */
-    overflow-y: visible;
-    /* Biarkan memanjang ke bawah */
-    max-height: none;
-    /* Hapus batasan tinggi */
-  }
-
-  /* Reset gaya tumpukan (polaroid) */
-  .y2k-polaroid {
-    width: 100%;
-    /* Lebar mengikuti kolom */
-    margin: 0 !important;
-    /* Hapus margin negatif */
-    top: 0 !important;
-    /* Reset posisi */
-  }
-
-  /* Buat rotasi zig-zag yang rapi */
-  .y2k-polaroid:nth-child(odd) {
-    transform: rotate(-3deg);
-  }
-
-  .y2k-polaroid:nth-child(even) {
-    transform: rotate(3deg);
-    margin-top: 20px !important;
-  }
-
-  /* --- LOGIKA ZOOM DI HP (PAKAI CLASS .zoomed) --- */
-  /* Kita matikan efek hover default di HP agar tidak nyangkut */
-  .y2k-polaroid:hover {
-    transform: none;
-    z-index: 1;
-  }
-
-  /* Class ini akan ditambahkan lewat JavaScript saat diklik */
-  .y2k-polaroid.zoomed {
-    transform: scale(1.3) rotate(0deg) !important;
-    z-index: 999;
-    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
-    /* Gelapkan background belakang */
-    position: relative;
-    border-color: #00ff00;
-    /* Border jadi hijau neon saat aktif */
-  }
-}
-
 /* --- TAMBAHAN UNTUK CARD 1 (Y2K SCRAPBOOK GALLERY) --- */
 
 /* Wadah utama agar foto tidak keluar jalur */
@@ -786,249 +716,97 @@ body::after {
   z-index: 10;
 }
 
-/* --- UPDATE FIX: AGAR TAMPILAN MOBILE LEBIH BESAR & JELAS --- */
-
+/* --- RESPONSIVE (MOBILE) - RAPI & FULL SCREEN --- */
 @media (max-width: 768px) {
 
-  /* 1. Memperbesar Kotak Window Utama */
-  .win-window {
-    width: 95% !important;
-    /* Lebar hampir full layar */
-    min-height: 60vh;
-    /* Tinggi minimal 60% layar HP (biar gak gepeng) */
-    margin-top: 70px;
-    /* Jarak dari atas */
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* Agar konten mengisi ruang kosong di kotak yang sudah diperbesar */
-  .win-content {
-    flex-grow: 1;
-    /* Konten memanjang ke bawah */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* Isi konten ditaruh di tengah vertikal */
-    padding: 25px 15px;
-    /* Padding lebih lega */
-  }
-
-  /* 2. Memperbesar Teks & Tombol di HP */
-  .btn {
-    width: 100%;
-    /* Tombol jadi selebar layar */
-    display: block;
-    /* Pastikan tombol turun ke bawah */
-    padding: 18px;
-    /* Tombol lebih tebal/tinggi */
-    font-size: 1.4rem;
-    /* Tulisan tombol lebih besar */
-    margin: 10px 0;
-    /* Jarak antar tombol */
-  }
-
-  p,
-  li,
-  span {
-    font-size: 1.1rem;
-    /* Tulisan biasa lebih besar sedikit */
-  }
-
-  /* 3. KHUSUS CARD 2 (MUSIC) */
-  iframe {
-    height: 200px !important;
-    /* Player Spotify lebih tinggi */
-  }
-
-  /* 4. KHUSUS CARD 3 (SURAT) */
-  #letter-text {
-    font-size: 1.2rem;
-    /* Tulisan surat lebih besar */
-    line-height: 1.6;
-    /* Jarak antar baris lebih lega */
-    text-align: left;
-    /* Rata kiri biar enak baca di HP */
-  }
-
-  /* 5. KHUSUS CARD 4-2 (STATS) */
-  /* Membuat bar stats lebih tebal */
-  .win-content p {
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-  }
-
-  /* 6. KHUSUS CARD 4-3 (FINAL BOSS) */
-  .error-box {
-    width: 95% !important;
-    /* Kotak error memenuhi layar */
-    padding: 30px 10px;
-    /* Isi lebih lega */
-  }
-
-  .error-box h1 {
-    font-size: 3rem;
-  }
-
-  /* Tulisan WARNING besar */
-  .error-box h2 {
-    font-size: 2rem;
-  }
-
-  /* Pertanyaan besar */
-
-  /* Tombol YES di Boss Battle jadi RAKSASA */
-  .error-box .btn {
-    font-size: 2rem;
-    padding: 25px;
-    animation: pulse 1s infinite;
-  }
-
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-    }
-
-    50% {
-      transform: scale(1.05);
-    }
-
-    100% {
-      transform: scale(1);
-    }
-  }
-}
-
-/* --- FINAL FIX: MEMBUAT SEMUA KARTU TINGGI & PENUH DI HP --- */
-
-@media (max-width: 768px) {
-
-  /* 1. Paksa Kotak Jadi Tinggi (Hampir Full Layar) */
-  .win-window {
-    min-height: 85vh !important;
-    /* 85% tinggi layar HP */
-    margin-top: 60px !important;
-    /* Jarak dari atas */
-    margin-bottom: 20px !important;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* 2. Isi Konten Menyesuaikan */
-  .win-content {
-    flex: 1;
-    /* Mengisi seluruh ruang kosong di dalam kotak */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* Teks di atas, tombol di paling bawah */
-  }
-
-  /* 3. KHUSUS CARD 3 (SURAT NOTEPAD) */
-  /* Agar area ketikan luas seperti kertas A4 */
-  #letter-text {
-    font-size: 1.3rem !important;
-    /* Huruf lebih besar */
-    line-height: 1.8 !important;
-    /* Spasi antar baris renggang */
-    text-align: left;
-    flex-grow: 1;
-    /* Dorong tombol ke bawah */
-    padding: 10px;
-    overflow-y: auto;
-    /* Bisa discroll kalau suratnya panjang banget */
-  }
-
-  /* 4. KHUSUS CARD 2 (MUSIK) */
-  /* Agar player musik ada di tengah-tengah yang enak dilihat */
-  .win-content iframe {
-    margin-top: auto;
-    margin-bottom: auto;
-    height: 250px !important;
-  }
-
-  /* 5. KHUSUS TOMBOL */
-  /* Tombol jadi besar dan mudah dipencet */
-  .btn {
-    padding: 20px !important;
-    font-size: 1.5rem !important;
-    margin-top: 20px;
-    width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
+  /* 1. Layout Body & Window (Full & Centered) */
   body {
     display: flex;
     align-items: center;
-    /* Paksa ke tengah vertikal */
     justify-content: center;
-    /* Paksa ke tengah horizontal */
-    height: 100dvh;
-    /* Setinggi layar HP */
+    min-height: 100vh;
+    min-height: 100dvh;
     overflow: hidden;
-    /* Mencegah body scroll agar window yang scroll */
-    padding: 10px;
+    /* Body tidak scroll */
+    padding: 0;
   }
 
   .win-window {
-    width: 95% !important;
-    min-height: 70vh !important;
-    /* Paksa window jadi tinggi */
-    height: auto !important;
+    width: 95vw !important;
+    height: 90vh !important;
+    max-width: none !important;
     margin: 0 !important;
-    /* Hapus margin top yang bikin dia di atas */
     display: flex;
     flex-direction: column;
-    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   }
 
   .win-content {
-    flex-grow: 1;
-    /* Konten bakal melar menutupi ruang kosong */
+    flex: 1;
+    overflow-y: auto;
+    /* Konten scroll di dalam */
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    /* Teks/tombol bakal ke tengah window */
-    padding: 30px 15px !important;
-    overflow-y: auto;
-    /* Hanya konten dalam window yang scroll */
+    align-items: center;
   }
 
-  /* Font & Button di HP diperbesar */
+  /* 2. Komponen UI */
   .btn {
     width: 100%;
-    margin: 10px 0;
     padding: 15px;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    margin: 10px 0;
   }
 
-  /* Card 3 (Notepad/Letter) */
-  #letter-text {
-    font-size: 1.2rem !important;
-    line-height: 1.6 !important;
-    text-align: left;
-    margin-bottom: 20px;
+  .grid-menu {
+    width: 100%;
+    gap: 15px;
   }
 
-  /* Fix Gallery Grid (Card 1) */
+  /* 3. Card 1: Galeri */
   .gallery-container {
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    max-height: 60vh;
+    gap: 15px;
+    max-height: none;
+    overflow-y: visible;
+    padding-bottom: 50px;
   }
 
   .y2k-polaroid {
     width: 100%;
     margin: 0 !important;
+    top: 0 !important;
   }
 
-  /* Card 4-3 (Boss/Error Box) */
+  .y2k-polaroid:nth-child(odd) {
+    transform: rotate(-2deg);
+  }
+
+  .y2k-polaroid:nth-child(even) {
+    transform: rotate(2deg);
+  }
+
+  /* 4. Card 2: Musik */
+  iframe {
+    width: 100%;
+    height: 250px !important;
+    margin: auto 0;
+  }
+
+  /* 5. Card 3: Surat */
+  #letter-text {
+    width: 100%;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  /* 6. Card 4-3: Boss */
   .error-box {
-    width: 100% !important;
-    min-height: 40vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    width: 90% !important;
   }
 }
