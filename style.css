@@ -292,7 +292,12 @@ body::after {
   }
 
   .grid-menu {
-    gap: 10px;
+    gap: 15px;
+    width: 100%;
+    max-width: 320px;
+    /* Agar ikon tidak terlalu melebar */
+    margin: 0 auto;
+    /* Posisi tengah */
   }
 }
 
