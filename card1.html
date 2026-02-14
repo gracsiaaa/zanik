@@ -3,26 +3,110 @@
 
 <head>
   <title>Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <div id="chaos-layer"></div>
   <div class="win-window">
-    <div class="win-titlebar"><span>🖼️ Image Viewer</span>
+    <div class="win-titlebar"><span>🖼️ Scrapbook.exe</span>
       <div class="win-controls"><span>X</span></div>
     </div>
     <div class="win-content">
-      <div style="background: white; padding: 10px; border: 2px inset gray; margin-bottom: 20px;">
-        <img src="img/1.jpeg" alt="Us" style="width: 100%;">
-        <img src="img/2.jpeg" alt="Us" style="width: 100%;">
-        <img src="img/3.jpeg" alt="Us" style="width: 100%;">
+
+      <div class="gallery-container">
+        <div class="y2k-polaroid" onclick="toggleZoom(this)">
+          <img src="img/1.jpeg" alt="Foto 1">
+          <div class="polaroid-caption">First Date</div>
+        </div>
+
+        <div class="y2k-polaroid" onclick="toggleZoom(this)">
+          <img src="img/2.jpeg" alt="Foto 2">
+          <div class="polaroid-caption">Silly Faces 😜</div>
+        </div>
+
+        <div class="y2k-polaroid" onclick="toggleZoom(this)">
+          <img src="img/3.jpeg" alt="Foto 3">
+          <div class="polaroid-caption">Yummy! 🍔</div>
+        </div>
+
+        <div class="y2k-polaroid" onclick="toggleZoom(this)">
+          <img src="img/4.jpeg" alt="Foto 4">
+          <div class="polaroid-caption">Cinema</div>
+        </div>
+
+        <div class="y2k-polaroid" onclick="toggleZoom(this)">
+          <img src="img/5.jpeg" alt="Foto 5">
+          <div class="polaroid-caption">OOTD</div>
+        </div>
+
+        <div class="y2k-polaroid" onclick="toggleZoom(this)">
+          <img src="img/6.jpeg" alt="Foto 6">
+          <div class="polaroid-caption">Holiday ✈️</div>
+        </div>
+
+        <div class="y2k-polaroid" onclick="toggleZoom(this)">
+          <img src="img/7.jpeg" alt="Foto 7">
+          <div class="polaroid-caption">Random</div>
+        </div>
+
+        <div class="y2k-polaroid" onclick="toggleZoom(this)">
+          <img src="img/8.jpeg" alt="Foto 8">
+          <div class="polaroid-caption">Anniv 💖</div>
+        </div>
+
+        <div class="y2k-polaroid" onclick="toggleZoom(this)">
+          <img src="img/9.jpeg" alt="Foto 9">
+          <div class="polaroid-caption">Coffee ☕</div>
+        </div>
+
+        <div class="y2k-polaroid" onclick="toggleZoom(this)">
+          <img src="img/10.jpeg" alt="Foto 10">
+          <div class="polaroid-caption">Us ❤️</div>
+        </div>
+
+        <div class="y2k-polaroid" onclick="toggleZoom(this)">
+          <img src="img/11.jpeg" alt="Foto 11">
+          <div class="polaroid-caption">Sunset</div>
+        </div>
+
+        <div class="y2k-polaroid" onclick="toggleZoom(this)">
+          <img src="img/12.jpeg" alt="Foto 12">
+          <div class="polaroid-caption">Hugs</div>
+        </div>
+
+        <div class="y2k-polaroid" onclick="toggleZoom(this)">
+          <img src="img/13.jpeg" alt="Foto 13">
+          <div class="polaroid-caption">My Fav ✨</div>
+        </div>
+
       </div>
-      <a href="menu.html" class="btn">
-        << Back</a>
+
+      <br>
+      <p style="font-family: 'VT323'; font-size: 0.9rem;">*Tap photo to zoom!*</p>
+      <a href="menu.html" class="btn">Back</a>
     </div>
   </div>
+
   <script src="script.js"></script>
+
+  <script>
+    function toggleZoom(element) {
+      // Cek apakah layar kecil (Mobile)
+      if (window.innerWidth <= 768) {
+        // Jika foto ini sudah di-zoom, kembalikan normal
+        if (element.classList.contains('zoomed')) {
+          element.classList.remove('zoomed');
+        } else {
+          // Jika belum, reset semua foto lain dulu
+          document.querySelectorAll('.y2k-polaroid').forEach(el => el.classList.remove('zoomed'));
+          // Lalu zoom foto yang ini
+          element.classList.add('zoomed');
+        }
+      }
+    }
+  </script>
 </body>
 
 </html>

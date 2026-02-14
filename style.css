@@ -463,3 +463,61 @@ body::after {
   background: #ff66b2;
   color: white;
 }
+
+/* --- MOBILE RESPONSIVE UNTUK GALERI (Card 1) --- */
+
+@media (max-width: 768px) {
+
+  /* Ubah wadah menjadi Grid 2 Kolom */
+  .gallery-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* 2 Foto per baris */
+    gap: 10px;
+    /* Jarak antar foto */
+    padding: 40px 10px;
+    /* Padding lebih lega */
+    overflow-y: visible;
+    /* Biarkan memanjang ke bawah */
+    max-height: none;
+    /* Hapus batasan tinggi */
+  }
+
+  /* Reset gaya tumpukan (polaroid) */
+  .y2k-polaroid {
+    width: 100%;
+    /* Lebar mengikuti kolom */
+    margin: 0 !important;
+    /* Hapus margin negatif */
+    top: 0 !important;
+    /* Reset posisi */
+  }
+
+  /* Buat rotasi zig-zag yang rapi */
+  .y2k-polaroid:nth-child(odd) {
+    transform: rotate(-3deg);
+  }
+
+  .y2k-polaroid:nth-child(even) {
+    transform: rotate(3deg);
+    margin-top: 20px !important;
+  }
+
+  /* --- LOGIKA ZOOM DI HP (PAKAI CLASS .zoomed) --- */
+  /* Kita matikan efek hover default di HP agar tidak nyangkut */
+  .y2k-polaroid:hover {
+    transform: none;
+    z-index: 1;
+  }
+
+  /* Class ini akan ditambahkan lewat JavaScript saat diklik */
+  .y2k-polaroid.zoomed {
+    transform: scale(1.3) rotate(0deg) !important;
+    z-index: 999;
+    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
+    /* Gelapkan background belakang */
+    position: relative;
+    border-color: #00ff00;
+    /* Border jadi hijau neon saat aktif */
+  }
+}
