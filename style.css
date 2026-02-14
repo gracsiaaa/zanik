@@ -464,6 +464,24 @@ body::after {
   color: white;
 }
 
+.fly-6 {
+  animation: fly2 13s infinite reverse linear;
+  background: #ff66b2;
+  color: white;
+}
+
+.fly-7 {
+  animation: fly3 15s infinite reverse linear;
+  background: #ff66b2;
+  color: white;
+}
+
+.fly-8 {
+  animation: fly4 18s infinite reverse linear;
+  background: #ff66b2;
+  color: white;
+}
+
 /* --- MOBILE RESPONSIVE UNTUK GALERI (Card 1) --- */
 
 @media (max-width: 768px) {
