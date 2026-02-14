@@ -1,3 +1,4 @@
+/* style.css - Y2K CHAOTIC CUTE EDITION */
 @import url('https://fonts.googleapis.com/css2?family=VT323&family=Comic+Neue:wght@700&display=swap');
 
 :root {
@@ -292,12 +293,7 @@ body::after {
   }
 
   .grid-menu {
-    gap: 15px;
-    width: 100%;
-    max-width: 320px;
-    /* Agar ikon tidak terlalu melebar */
-    margin: 0 auto;
-    /* Posisi tengah */
+    gap: 10px;
   }
 }
 
@@ -899,63 +895,5 @@ body::after {
     100% {
       transform: scale(1);
     }
-  }
-}
-
-/* --- FINAL FIX: MEMBUAT SEMUA KARTU TINGGI & PENUH DI HP --- */
-
-@media (max-width: 768px) {
-
-  /* 1. Paksa Kotak Jadi Tinggi (Hampir Full Layar) */
-  .win-window {
-    min-height: 85vh !important;
-    /* 85% tinggi layar HP */
-    margin-top: 60px !important;
-    /* Jarak dari atas */
-    margin-bottom: 20px !important;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* 2. Isi Konten Menyesuaikan */
-  .win-content {
-    flex: 1;
-    /* Mengisi seluruh ruang kosong di dalam kotak */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* Teks di atas, tombol di paling bawah */
-  }
-
-  /* 3. KHUSUS CARD 3 (SURAT NOTEPAD) */
-  /* Agar area ketikan luas seperti kertas A4 */
-  #letter-text {
-    font-size: 1.3rem !important;
-    /* Huruf lebih besar */
-    line-height: 1.8 !important;
-    /* Spasi antar baris renggang */
-    text-align: left;
-    flex-grow: 1;
-    /* Dorong tombol ke bawah */
-    padding: 10px;
-    overflow-y: auto;
-    /* Bisa discroll kalau suratnya panjang banget */
-  }
-
-  /* 4. KHUSUS CARD 2 (MUSIK) */
-  /* Agar player musik ada di tengah-tengah yang enak dilihat */
-  .win-content iframe {
-    margin-top: auto;
-    margin-bottom: auto;
-    height: 250px !important;
-  }
-
-  /* 5. KHUSUS TOMBOL */
-  /* Tombol jadi besar dan mudah dipencet */
-  .btn {
-    padding: 20px !important;
-    font-size: 1.5rem !important;
-    margin-top: 20px;
-    width: 100%;
   }
 }
