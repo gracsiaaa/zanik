@@ -464,21 +464,25 @@ body::after {
     left: 5%;
     transform: rotate(0deg);
   }
+
   25% {
     top: 5%;
     left: 50%;
     transform: rotate(20deg);
   }
+
   50% {
     top: 50%;
     left: 95%;
     transform: rotate(-10deg);
   }
+
   75% {
     top: 95%;
     left: 50%;
     transform: rotate(10deg);
   }
+
   100% {
     top: 50%;
     left: 5%;
@@ -492,16 +496,19 @@ body::after {
     left: 90%;
     transform: rotate(-10deg);
   }
+
   33% {
     top: 90%;
     left: 10%;
     transform: rotate(10deg);
   }
+
   66% {
     top: 10%;
     left: 10%;
     transform: rotate(-20deg);
   }
+
   100% {
     top: 10%;
     left: 90%;
@@ -515,21 +522,25 @@ body::after {
     left: 50%;
     transform: rotate(0deg);
   }
+
   25% {
     top: 40%;
     left: 10%;
     transform: rotate(-15deg);
   }
+
   50% {
     top: 10%;
     left: 50%;
     transform: rotate(0deg);
   }
+
   75% {
     top: 40%;
     left: 90%;
     transform: rotate(15deg);
   }
+
   100% {
     top: 90%;
     left: 50%;
@@ -539,20 +550,25 @@ body::after {
 
 .fly-5 {
   animation: fly5 17s infinite linear;
-  background: #ff9900; /* Orange Y2K */
+  background: #ff9900;
+  /* Orange Y2K */
   color: white;
 }
 
 .fly-6 {
   animation: fly6 13s infinite linear;
-  background: #9900ff; /* Purple */
-  color: #ccff00; /* Lime Green */
+  background: #9900ff;
+  /* Purple */
+  color: #ccff00;
+  /* Lime Green */
 }
 
 .fly-7 {
   animation: fly7 19s infinite linear;
-  background: #00ffcc; /* Cyan */
-  color: #ff0099; /* Hot Pink */
+  background: #00ffcc;
+  /* Cyan */
+  color: #ff0099;
+  /* Hot Pink */
 }
 
 @keyframes fly8 {
@@ -561,21 +577,25 @@ body::after {
     left: 30%;
     transform: rotate(0deg);
   }
+
   25% {
     top: 70%;
     left: 70%;
     transform: rotate(-20deg);
   }
+
   50% {
     top: 30%;
     left: 70%;
     transform: rotate(10deg);
   }
+
   75% {
     top: 70%;
     left: 30%;
     transform: rotate(-10deg);
   }
+
   100% {
     top: 30%;
     left: 30%;
@@ -586,7 +606,8 @@ body::after {
 .fly-8 {
   animation: fly8 16s infinite linear;
   background: black;
-  color: #00ff00; /* Matrix Green */
+  color: #00ff00;
+  /* Matrix Green */
   border-color: #00ff00;
 }
 
@@ -762,4 +783,117 @@ body::after {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   transform: translateX(-50%);
   z-index: 10;
+}
+
+/* --- UPDATE FIX: AGAR TAMPILAN MOBILE LEBIH BESAR & JELAS --- */
+
+@media (max-width: 768px) {
+
+  /* 1. Memperbesar Kotak Window Utama */
+  .win-window {
+    width: 95% !important;
+    /* Lebar hampir full layar */
+    min-height: 60vh;
+    /* Tinggi minimal 60% layar HP (biar gak gepeng) */
+    margin-top: 70px;
+    /* Jarak dari atas */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Agar konten mengisi ruang kosong di kotak yang sudah diperbesar */
+  .win-content {
+    flex-grow: 1;
+    /* Konten memanjang ke bawah */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Isi konten ditaruh di tengah vertikal */
+    padding: 25px 15px;
+    /* Padding lebih lega */
+  }
+
+  /* 2. Memperbesar Teks & Tombol di HP */
+  .btn {
+    width: 100%;
+    /* Tombol jadi selebar layar */
+    display: block;
+    /* Pastikan tombol turun ke bawah */
+    padding: 18px;
+    /* Tombol lebih tebal/tinggi */
+    font-size: 1.4rem;
+    /* Tulisan tombol lebih besar */
+    margin: 10px 0;
+    /* Jarak antar tombol */
+  }
+
+  p,
+  li,
+  span {
+    font-size: 1.1rem;
+    /* Tulisan biasa lebih besar sedikit */
+  }
+
+  /* 3. KHUSUS CARD 2 (MUSIC) */
+  iframe {
+    height: 200px !important;
+    /* Player Spotify lebih tinggi */
+  }
+
+  /* 4. KHUSUS CARD 3 (SURAT) */
+  #letter-text {
+    font-size: 1.2rem;
+    /* Tulisan surat lebih besar */
+    line-height: 1.6;
+    /* Jarak antar baris lebih lega */
+    text-align: left;
+    /* Rata kiri biar enak baca di HP */
+  }
+
+  /* 5. KHUSUS CARD 4-2 (STATS) */
+  /* Membuat bar stats lebih tebal */
+  .win-content p {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+  }
+
+  /* 6. KHUSUS CARD 4-3 (FINAL BOSS) */
+  .error-box {
+    width: 95% !important;
+    /* Kotak error memenuhi layar */
+    padding: 30px 10px;
+    /* Isi lebih lega */
+  }
+
+  .error-box h1 {
+    font-size: 3rem;
+  }
+
+  /* Tulisan WARNING besar */
+  .error-box h2 {
+    font-size: 2rem;
+  }
+
+  /* Pertanyaan besar */
+
+  /* Tombol YES di Boss Battle jadi RAKSASA */
+  .error-box .btn {
+    font-size: 2rem;
+    padding: 25px;
+    animation: pulse 1s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.05);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
 }
