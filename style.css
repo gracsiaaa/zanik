@@ -458,29 +458,139 @@ body::after {
   color: red;
 }
 
+@keyframes fly5 {
+  0% {
+    top: 50%;
+    left: 5%;
+    transform: rotate(0deg);
+  }
+  25% {
+    top: 5%;
+    left: 50%;
+    transform: rotate(20deg);
+  }
+  50% {
+    top: 50%;
+    left: 95%;
+    transform: rotate(-10deg);
+  }
+  75% {
+    top: 95%;
+    left: 50%;
+    transform: rotate(10deg);
+  }
+  100% {
+    top: 50%;
+    left: 5%;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes fly6 {
+  0% {
+    top: 10%;
+    left: 90%;
+    transform: rotate(-10deg);
+  }
+  33% {
+    top: 90%;
+    left: 10%;
+    transform: rotate(10deg);
+  }
+  66% {
+    top: 10%;
+    left: 10%;
+    transform: rotate(-20deg);
+  }
+  100% {
+    top: 10%;
+    left: 90%;
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes fly7 {
+  0% {
+    top: 90%;
+    left: 50%;
+    transform: rotate(0deg);
+  }
+  25% {
+    top: 40%;
+    left: 10%;
+    transform: rotate(-15deg);
+  }
+  50% {
+    top: 10%;
+    left: 50%;
+    transform: rotate(0deg);
+  }
+  75% {
+    top: 40%;
+    left: 90%;
+    transform: rotate(15deg);
+  }
+  100% {
+    top: 90%;
+    left: 50%;
+    transform: rotate(0deg);
+  }
+}
+
 .fly-5 {
-  animation: fly1 18s infinite reverse linear;
-  background: #ff66b2;
+  animation: fly5 17s infinite linear;
+  background: #ff9900; /* Orange Y2K */
   color: white;
 }
 
 .fly-6 {
-  animation: fly2 13s infinite reverse linear;
-  background: #ff66b2;
-  color: white;
+  animation: fly6 13s infinite linear;
+  background: #9900ff; /* Purple */
+  color: #ccff00; /* Lime Green */
 }
 
 .fly-7 {
-  animation: fly3 15s infinite reverse linear;
-  background: #ff66b2;
-  color: white;
+  animation: fly7 19s infinite linear;
+  background: #00ffcc; /* Cyan */
+  color: #ff0099; /* Hot Pink */
+}
+
+@keyframes fly8 {
+  0% {
+    top: 30%;
+    left: 30%;
+    transform: rotate(0deg);
+  }
+  25% {
+    top: 70%;
+    left: 70%;
+    transform: rotate(-20deg);
+  }
+  50% {
+    top: 30%;
+    left: 70%;
+    transform: rotate(10deg);
+  }
+  75% {
+    top: 70%;
+    left: 30%;
+    transform: rotate(-10deg);
+  }
+  100% {
+    top: 30%;
+    left: 30%;
+    transform: rotate(0deg);
+  }
 }
 
 .fly-8 {
-  animation: fly4 18s infinite reverse linear;
-  background: #ff66b2;
-  color: white;
+  animation: fly8 16s infinite linear;
+  background: black;
+  color: #00ff00; /* Matrix Green */
+  border-color: #00ff00;
 }
+
+
 
 /* --- MOBILE RESPONSIVE UNTUK GALERI (Card 1) --- */
 
