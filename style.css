@@ -1,4 +1,4 @@
-/* style.css - FINAL COMPLETED VERSION */
+/* style.css - FINAL Y2K OPTIMIZED VERSION */
 @import url('https://fonts.googleapis.com/css2?family=VT323&family=Comic+Neue:wght@700&display=swap');
 
 :root {
@@ -19,7 +19,6 @@ body {
   padding: 0;
   font-family: 'Comic Neue', sans-serif;
   background-color: #ff99cc;
-  /* Grid Pattern Background */
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
@@ -28,8 +27,10 @@ body {
   overflow-x: hidden;
   color: var(--text-color);
   cursor: crosshair;
-  padding-bottom: 50px;
-  /* Ruang scroll bawah */
+  display: flex;
+  /* Tambahan agar konten bisa di tengah secara vertikal */
+  align-items: center;
+  justify-content: center;
 }
 
 /* --- GLITTER EFFECT OVERLAY --- */
@@ -79,45 +80,7 @@ body::after {
   overflow: hidden;
 }
 
-/* --- CHAOS LAYER (Floating Emojis) --- */
-#chaos-layer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.floating-emoji {
-  position: absolute;
-  font-size: 2rem;
-  animation: floatAround 10s infinite ease-in-out;
-  filter: drop-shadow(2px 2px 0 rgba(255, 255, 255, 0.5));
-}
-
-@keyframes floatAround {
-
-  0%,
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-
-  25% {
-    transform: translate(10px, -15px) rotate(5deg);
-  }
-
-  50% {
-    transform: translate(-5px, 10px) rotate(-5deg);
-  }
-
-  75% {
-    transform: translate(-10px, -5px) rotate(5deg);
-  }
-}
-
-/* --- WINDOWS XP STYLE BOX --- */
+/* --- WINDOWS XP BOX --- */
 .win-window {
   position: relative;
   z-index: 10;
@@ -126,11 +89,8 @@ body::after {
   border-radius: 5px 5px 0 0;
   box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
   width: 90%;
-  max-width: 600px;
+  max-width: 500px;
   margin: 80px auto 40px auto;
-  /* Flex setup agar konten bisa stretch */
-  display: flex;
-  flex-direction: column;
 }
 
 .win-titlebar {
@@ -165,11 +125,6 @@ body::after {
   padding: 20px;
   text-align: center;
   background-image: var(--gloss-gradient);
-  flex-grow: 1;
-  /* Konten mengisi sisa ruang */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 /* --- BUTTONS --- */
@@ -199,117 +154,78 @@ body::after {
   transform: scale(0.95);
 }
 
-/* --- MENU GRID --- */
+/* --- GRID MENU --- */
 .grid-menu {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
 }
 
-.icon-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-  border: 2px dashed var(--hot-pink);
-  background: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  transition: 0.2s;
+/* --- SCROLLING EMOJIS LAYER --- */
+#chaos-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
 
-.icon-item:hover {
-  background: white;
-  transform: rotate(-2deg);
+.floating-emoji {
+  position: absolute;
+  font-size: 2rem;
+  animation: floatAround 10s infinite ease-in-out;
 }
 
-.emoji-icon {
-  font-size: 3rem;
-  margin-bottom: 5px;
+@keyframes floatAround {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(10px, -15px) rotate(5deg);
+  }
 }
 
-/* --------------------------------------------------------- */
-/* --- CARD 1: SCRAPBOOK GALLERY (DEFAULT DESKTOP) --- */
-/* --------------------------------------------------------- */
+/* --- PHOTO GALLERY (CARD 1) --- */
 .gallery-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   gap: 15px;
-  padding: 40px 10px;
-  background-image: linear-gradient(#e1e1e1 1px, transparent 1px);
-  background-size: 100% 1.2em;
+  padding: 20px 5px;
   background-color: #fffaf0;
   border: 2px inset white;
-  min-height: 400px;
-  overflow-y: visible;
+  max-height: 500px;
+  overflow-y: auto;
 }
 
-/* Polaroid Style */
 .y2k-polaroid {
   background: white;
-  padding: 8px 8px 30px 8px;
+  padding: 8px 8px 25px 8px;
   box-shadow: 4px 4px 0 rgba(255, 0, 153, 0.3);
   border: 2px solid var(--hot-pink);
-  width: 140px;
-  height: auto;
+  width: 120px;
   text-align: center;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   cursor: pointer;
-  margin-bottom: -40px;
-  /* Tumpuk-tumpuk di Desktop */
 }
 
 .y2k-polaroid img {
   width: 100%;
-  height: 120px;
+  height: 100px;
   object-fit: cover;
-  border: 1px solid #ccc;
-  display: block;
 }
 
 .polaroid-caption {
   font-family: 'VT323', monospace;
-  font-size: 1.1rem;
   color: var(--hot-pink);
-  margin-top: 5px;
-  position: absolute;
-  bottom: 5px;
-  left: 0;
-  width: 100%;
 }
 
-/* Desktop Hover Effects */
-@media (min-width: 769px) {
-  .y2k-polaroid:hover {
-    transform: scale(1.5) rotate(0deg) !important;
-    z-index: 100;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    border-color: cyan;
-  }
-
-  /* Random Rotation */
-  .y2k-polaroid:nth-child(odd) {
-    transform: rotate(-5deg);
-    margin-right: -20px;
-  }
-
-  .y2k-polaroid:nth-child(even) {
-    transform: rotate(5deg);
-    margin-left: -20px;
-    top: 10px;
-  }
-
-  .y2k-polaroid:nth-child(3n) {
-    transform: rotate(-3deg);
-    top: -15px;
-  }
-}
-
-/* --------------------------------------------------------- */
-/* --- CARD 4-1: FLYING STICKERS ANIMATION --- */
-/* --------------------------------------------------------- */
+/* --- FLYING STICKERS (CARD 4-1) --- */
 .sticker-board {
   height: 350px;
   position: relative;
@@ -326,80 +242,7 @@ body::after {
   font-family: 'VT323', monospace;
   font-size: 1.5rem;
   border: 2px solid black;
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
-  white-space: nowrap;
-  cursor: grab;
-}
-
-/* Keyframes Terbang */
-@keyframes fly1 {
-  0% {
-    top: 10%;
-    left: 10%;
-    transform: rotate(0deg);
-  }
-
-  50% {
-    top: 80%;
-    left: 80%;
-    transform: rotate(10deg);
-  }
-
-  100% {
-    top: 10%;
-    left: 10%;
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes fly2 {
-  0% {
-    top: 80%;
-    left: 80%;
-    transform: rotate(0deg);
-  }
-
-  50% {
-    top: 10%;
-    left: 20%;
-    transform: rotate(-10deg);
-  }
-
-  100% {
-    top: 80%;
-    left: 80%;
-    transform: rotate(0deg);
-  }
-}
-
-.fly-1 {
-  animation: fly1 12s infinite linear;
-  background: #ff99cc;
-  color: yellow;
-}
-
-.fly-2 {
-  animation: fly2 15s infinite linear;
-  background: cyan;
-  color: black;
-}
-
-.fly-3 {
-  animation: fly1 10s infinite reverse linear;
-  background: lime;
-  color: blue;
-}
-
-.fly-4 {
-  animation: fly2 18s infinite reverse linear;
   background: yellow;
-  color: red;
-}
-
-.fly-5 {
-  animation: fly1 14s infinite linear;
-  background: #ff66b2;
-  color: white;
 }
 
 /* --- BOSS POPUP --- */
@@ -427,16 +270,14 @@ body::after {
 }
 
 @keyframes shake {
-  0% {
+
+  0%,
+  100% {
     transform: translate(0, 0);
   }
 
   50% {
     transform: translate(-5px, 5px);
-  }
-
-  100% {
-    transform: translate(0, 0);
   }
 }
 
@@ -444,105 +285,80 @@ body::after {
   display: none !important;
 }
 
-/* --------------------------------------------------------- */
-/* --- MOBILE RESPONSIVE (CRITICAL UPDATES) --- */
-/* --------------------------------------------------------- */
+/* ----------------------------------------------------------- */
+/* --- MOBILE RESPONSIVE FIX (TENGAH & PENUH) --- */
+/* ----------------------------------------------------------- */
+
 @media (max-width: 768px) {
+  body {
+    align-items: center;
+    /* Memaksa kotak di tengah vertikal */
+    justify-content: center;
+    overflow-y: auto;
+    /* Memungkinkan scroll jika isi melebihi layar */
+  }
 
-  /* 1. Paksa Kotak Jadi Tinggi (Hampir Full Layar) */
+  /* Kotak Window dibuat besar dan lega */
   .win-window {
-    min-height: 80vh !important;
-    /* Tinggi min 80% layar HP */
-    margin-top: 70px !important;
-    margin-bottom: 30px !important;
     width: 95% !important;
+    min-height: 85vh !important;
+    /* Hampir setinggi layar HP */
+    margin: 60px auto 20px auto !important;
+    /* Hapus margin top yang terlalu besar */
+    display: flex;
+    flex-direction: column;
   }
 
-  /* 2. Konten Mengisi Ruang */
   .win-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    /* Sebar konten atas-bawah */
-    padding: 25px 15px !important;
+    /* Konten tersebar dari atas ke bawah */
+    padding: 30px 15px !important;
   }
 
-  /* 3. Tombol Besar */
+  /* Tombol memanjang dan mudah di-tap */
   .btn {
     width: 100%;
-    padding: 20px;
-    font-size: 1.4rem;
     margin: 10px 0;
+    padding: 20px;
+    font-size: 1.5rem;
   }
 
-  /* 4. Fix Gallery Card 1 (Zig-Zag Grid) */
+  /* Card 3 (Letter) lebih lega */
+  #letter-text {
+    font-size: 1.3rem !important;
+    line-height: 1.8 !important;
+    text-align: left;
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+
+  /* Card 1 Gallery Grid */
   .gallery-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    padding: 20px 10px;
-    align-items: start;
+    max-height: none;
     height: auto;
   }
 
   .y2k-polaroid {
     width: 100%;
     margin: 0 !important;
-    top: 0 !important;
-    margin-bottom: 10px;
   }
 
-  .y2k-polaroid img {
-    height: 100px;
-  }
-
-  /* Zigzag Mobile */
-  .y2k-polaroid:nth-child(odd) {
-    transform: rotate(-3deg);
-  }
-
-  .y2k-polaroid:nth-child(even) {
-    transform: rotate(3deg);
-    margin-top: 20px !important;
-  }
-
-  /* Zoom Effect Mobile */
-  .y2k-polaroid.zoomed {
-    transform: scale(1.3) rotate(0deg) !important;
-    z-index: 999;
-    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
-    border-color: #00ff00;
-  }
-
-  /* 5. Fix Card 3 (Surat Full Screen) */
-  #letter-text {
-    flex-grow: 1;
-    text-align: left;
-    font-size: 1.3rem !important;
-    line-height: 1.8 !important;
-    overflow-y: auto;
-  }
-
-  /* 6. Fix Card 2 (Music Player) */
-  iframe {
-    height: 250px !important;
-    margin: auto 0;
-  }
-
-  /* 7. Fix Card 4-3 (Boss Battle) */
+  /* Card 4-3 (Boss/Error) */
   .error-box {
     width: 95% !important;
-    padding: 40px 20px !important;
-    min-height: 50vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
-  .error-box h1 {
-    font-size: 2.5rem !important;
-  }
-
   .error-box .btn {
-    transform: scale(1);
-    width: 100% !important;
+    font-size: 1.8rem;
+    padding: 25px;
   }
 }
