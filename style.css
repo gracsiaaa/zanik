@@ -1,5 +1,5 @@
-/* style.css - FINAL Y2K OPTIMIZED VERSION */
-@import url('https://fonts.googleapis.com/css2?family=VT323&family=Comic+Neue:wght@700&display=swap');
+/* style.css - Y2K CHAOTIC CUTE (FIXED MOBILE VERSION) */
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Comic+Neue:wght@700&family=Baloo+2:wght@600&display=swap');
 
 :root {
   --hot-pink: #ff0099;
@@ -24,11 +24,13 @@ body {
     linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
   background-size: 20px 20px;
   min-height: 100vh;
+  min-height: 100dvh;
+  /* Untuk HP agar presisi */
   overflow-x: hidden;
   color: var(--text-color);
   cursor: crosshair;
+  /* Centering Global */
   display: flex;
-  /* Tambahan agar konten bisa di tengah secara vertikal */
   align-items: center;
   justify-content: center;
 }
@@ -80,7 +82,7 @@ body::after {
   overflow: hidden;
 }
 
-/* --- WINDOWS XP BOX --- */
+/* --- WINDOWS BOX (DESKTOP) --- */
 .win-window {
   position: relative;
   z-index: 10;
@@ -102,7 +104,6 @@ body::after {
   color: white;
   font-family: 'VT323', monospace;
   font-size: 1.3rem;
-  letter-spacing: 1px;
 }
 
 .win-controls span {
@@ -117,7 +118,6 @@ body::after {
   font-weight: bold;
   cursor: pointer;
   margin-left: 5px;
-  font-family: sans-serif;
   font-size: 12px;
 }
 
@@ -145,23 +145,7 @@ body::after {
   transition: transform 0.1s;
 }
 
-.btn:hover {
-  transform: scale(1.05);
-  filter: brightness(1.1);
-}
-
-.btn:active {
-  transform: scale(0.95);
-}
-
-/* --- GRID MENU --- */
-.grid-menu {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-}
-
-/* --- SCROLLING EMOJIS LAYER --- */
+/* --- CHAOS LAYER (Floating Emojis) --- */
 #chaos-layer {
   position: fixed;
   top: 0;
@@ -220,127 +204,69 @@ body::after {
   object-fit: cover;
 }
 
-.polaroid-caption {
-  font-family: 'VT323', monospace;
-  color: var(--hot-pink);
-}
-
-/* --- FLYING STICKERS (CARD 4-1) --- */
-.sticker-board {
-  height: 350px;
-  position: relative;
-  background: white;
-  border: 3px inset var(--hot-pink);
-  overflow: hidden;
-  background-image: radial-gradient(#ffccdd 10%, transparent 10%);
-  background-size: 20px 20px;
-}
-
-.word-sticker {
-  position: absolute;
-  padding: 5px 10px;
-  font-family: 'VT323', monospace;
-  font-size: 1.5rem;
-  border: 2px solid black;
-  background: yellow;
-}
-
-/* --- BOSS POPUP --- */
-#boss-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 0, 153, 0.5);
-  backdrop-filter: blur(2px);
-  z-index: 2000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.error-box {
-  background: #ece9d8;
-  border: 2px solid black;
-  box-shadow: 10px 10px 0 black;
-  padding: 20px;
-  width: 300px;
-  animation: shake 0.5s infinite;
-}
-
-@keyframes shake {
-
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-
-  50% {
-    transform: translate(-5px, 5px);
-  }
-}
-
-.hidden {
-  display: none !important;
-}
-
 /* ----------------------------------------------------------- */
-/* --- MOBILE RESPONSIVE FIX (TENGAH & PENUH) --- */
+/* --- PERBAIKAN TOTAL MOBILE (TENGAH, BESAR, FULL) --- */
 /* ----------------------------------------------------------- */
 
 @media (max-width: 768px) {
   body {
+    display: flex;
     align-items: center;
-    /* Memaksa kotak di tengah vertikal */
+    /* Paksa ke tengah vertikal */
     justify-content: center;
-    overflow-y: auto;
-    /* Memungkinkan scroll jika isi melebihi layar */
+    /* Paksa ke tengah horizontal */
+    height: 100dvh;
+    /* Setinggi layar HP */
+    overflow: hidden;
+    /* Mencegah body scroll agar window yang scroll */
+    padding: 10px;
   }
 
-  /* Kotak Window dibuat besar dan lega */
   .win-window {
     width: 95% !important;
-    min-height: 85vh !important;
-    /* Hampir setinggi layar HP */
-    margin: 60px auto 20px auto !important;
-    /* Hapus margin top yang terlalu besar */
+    min-height: 70vh !important;
+    /* Paksa window jadi tinggi */
+    height: auto !important;
+    margin: 0 !important;
+    /* Hapus margin top yang bikin dia di atas */
     display: flex;
     flex-direction: column;
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.2);
   }
 
   .win-content {
     flex-grow: 1;
+    /* Konten bakal melar menutupi ruang kosong */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    /* Konten tersebar dari atas ke bawah */
+    justify-content: center;
+    /* Teks/tombol bakal ke tengah window */
     padding: 30px 15px !important;
+    overflow-y: auto;
+    /* Hanya konten dalam window yang scroll */
   }
 
-  /* Tombol memanjang dan mudah di-tap */
+  /* Font & Button di HP diperbesar */
   .btn {
     width: 100%;
     margin: 10px 0;
-    padding: 20px;
-    font-size: 1.5rem;
+    padding: 15px;
+    font-size: 1.4rem;
   }
 
-  /* Card 3 (Letter) lebih lega */
+  /* Card 3 (Notepad/Letter) */
   #letter-text {
-    font-size: 1.3rem !important;
-    line-height: 1.8 !important;
+    font-size: 1.2rem !important;
+    line-height: 1.6 !important;
     text-align: left;
-    flex-grow: 1;
-    overflow-y: auto;
+    margin-bottom: 20px;
   }
 
-  /* Card 1 Gallery Grid */
+  /* Fix Gallery Grid (Card 1) */
   .gallery-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    max-height: none;
-    height: auto;
+    max-height: 60vh;
   }
 
   .y2k-polaroid {
@@ -348,17 +274,12 @@ body::after {
     margin: 0 !important;
   }
 
-  /* Card 4-3 (Boss/Error) */
+  /* Card 4-3 (Boss/Error Box) */
   .error-box {
-    width: 95% !important;
-    min-height: 60vh;
+    width: 100% !important;
+    min-height: 40vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-
-  .error-box .btn {
-    font-size: 1.8rem;
-    padding: 25px;
   }
 }
