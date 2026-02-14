@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <title>Final</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="chaos-layer"></div>
+
+  <div class="error-box" id="q-stage"
+    style="width: 90%; max-width: 400px; margin: 100px auto; background: red; border: 5px solid yellow;">
+    <h1 style="color: yellow; font-family: 'VT323';">CRITICAL ALERT!</h1>
+    <p style="color: white; font-family: sans-serif; font-weight: bold;">One final question to save the system.</p>
+    <h2 style="color: white;">Will you be my Valentine?</h2>
+    <br>
+    <button class="btn" style="background: white; color: black; transform: scale(1.2);"
+      onclick="document.getElementById('q-stage').classList.add('hidden'); document.getElementById('a-stage').classList.remove('hidden');">YES
+      PLEASE!</button>
+  </div>
+
+  <div class="win-window hidden" id="a-stage">
+    <div class="win-titlebar"><span>System Saved</span>
+      <div class="win-controls"><span>X</span></div>
+    </div>
+    <div class="win-content">
+      <h1>MISSION COMPLETE!</h1>
+      <div style="font-size: 5rem;">💾</div>
+      <p>Love saved to hard drive.</p>
+      <p>I Love You!</p>
+      <a href="menu.html" class="btn">Reboot</a>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

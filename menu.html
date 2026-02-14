@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Files</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="marquee-container">
+    <marquee scrollamount="15">*** CHOOSE YOUR FILE *** DON'T FORGET THE SECRET FOLDER *** XOXO ***</marquee>
+  </div>
+  <div id="chaos-layer"></div>
+
+  <div class="win-window">
+    <div class="win-titlebar">
+      <span>📁 C:/My_Documents/Favorites</span>
+      <div class="win-controls"><span>_</span><span>X</span></div>
+    </div>
+    <div class="win-content">
+      <div class="grid-menu">
+        <div class="icon-item" onclick="location.href='card1.html'">
+          <span class="emoji-icon">📸</span>
+          <span>Pics.jpg</span>
+        </div>
+        <div class="icon-item" onclick="location.href='card2.html'">
+          <span class="emoji-icon">🎧</span>
+          <span>Songs.mp3</span>
+        </div>
+        <div class="icon-item" onclick="location.href='card3.html'">
+          <span class="emoji-icon">📝</span>
+          <span>Diary.txt</span>
+        </div>
+        <div class="icon-item" onclick="location.href='card4.html'">
+          <span class="emoji-icon">🔒</span>
+          <span>Secret.exe</span>
+        </div>
+      </div>
+      <br>
+      <a href="index.html" class="btn" style="font-size: 1rem;">Log Off</a>
+    </div>
+  </div>
+
+  <div id="boss-overlay" class="hidden">
+    <div id="virus-alert" class="error-box">
+      <div
+        style="background: blue; color: white; padding: 2px; font-family: sans-serif; font-weight: bold; display: flex; justify-content: space-between;">
+        <span>System Error</span><span>X</span>
+      </div>
+      <div style="padding: 20px; text-align: center;">
+        <span style="font-size: 3rem;">⚠️</span>
+        <p style="font-family: sans-serif; margin: 10px 0;">A wild question interrupted the system!</p>
+        <h3 style="color: red;">Will you be my Valentine?</h3>
+        <br>
+        <button class="btn" style="background: white; color: black;" onclick="finishGame()">YES, OK!</button>
+      </div>
+    </div>
+
+    <div id="success-msg" class="win-window hidden" style="margin-top: 0;">
+      <div class="win-titlebar"><span>Success!</span>
+        <div class="win-controls"><span>X</span></div>
+      </div>
+      <div class="win-content">
+        <h1>YAY! 💖</h1>
+        <p>Virus removed. Love installed.</p>
+        <p>I Love You!</p>
+        <button class="btn" onclick="document.getElementById('boss-overlay').classList.add('hidden')">Close</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
