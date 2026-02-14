@@ -521,3 +521,117 @@ body::after {
     /* Border jadi hijau neon saat aktif */
   }
 }
+
+/* --- TAMBAHAN UNTUK CARD 1 (Y2K SCRAPBOOK GALLERY) --- */
+
+/* Wadah utama agar foto tidak keluar jalur */
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 5px;
+  /* Background pola buku tulis jadul */
+  background-image: linear-gradient(#e1e1e1 1px, transparent 1px);
+  background-size: 100% 1.2em;
+  border: 2px inset white;
+  background-color: #fffaf0;
+  max-height: 500px;
+  /* Batasi tinggi agar compact */
+  overflow-y: auto;
+  /* Scroll jika terlalu penuh di HP */
+}
+
+/* Gaya Polaroid Y2K */
+.y2k-polaroid {
+  background: white;
+  padding: 8px 8px 25px 8px;
+  /* Padding bawah lebih besar untuk caption */
+  box-shadow: 4px 4px 0 rgba(255, 0, 153, 0.3);
+  /* Shadow pink */
+  border: 2px solid var(--hot-pink);
+  width: 120px;
+  /* Ukuran compact */
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Efek membal */
+  position: relative;
+  cursor: pointer;
+  margin-bottom: -20px;
+  /* Margin negatif agar saling menumpuk */
+}
+
+.y2k-polaroid img {
+  width: 100%;
+  height: 100px;
+  /* Tinggi seragam */
+  object-fit: cover;
+  /* Agar foto tidak gepeng */
+  border: 1px solid #ccc;
+  image-rendering: auto;
+  /* Foto asli jangan dipixelate */
+}
+
+.polaroid-caption {
+  font-family: 'VT323', monospace;
+  font-size: 1rem;
+  color: var(--hot-pink);
+  margin-top: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- Interaksi Hover (Kunci agar terlihat jelas) --- */
+.y2k-polaroid:hover {
+  transform: scale(1.5) rotate(0deg) !important;
+  /* Perbesar dan luruskan */
+  z-index: 100;
+  /* Bawa ke paling depan */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border-color: cyan;
+}
+
+/* --- KEKACAUAN YANG LUCU (Rotasi & Posisi Acak) --- */
+/* Kita gunakan nth-child untuk memberi rotasi berbeda pada tiap foto */
+.y2k-polaroid:nth-child(odd) {
+  transform: rotate(-3deg);
+  margin-right: -10px;
+}
+
+.y2k-polaroid:nth-child(even) {
+  transform: rotate(4deg);
+  margin-left: -10px;
+  top: 10px;
+}
+
+.y2k-polaroid:nth-child(3n) {
+  transform: rotate(-6deg);
+  top: -15px;
+}
+
+.y2k-polaroid:nth-child(4n) {
+  transform: rotate(2deg);
+  top: 5px;
+}
+
+.y2k-polaroid:nth-child(5n) {
+  transform: rotate(8deg);
+  margin-right: -15px;
+}
+
+/* Hiasan Stiker Pin di atas foto (Opsional, pakai CSS murni) */
+.y2k-polaroid::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  background: radial-gradient(circleAtTopLeft, white, red);
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transform: translateX(-50%);
+  z-index: 10;
+}
